@@ -69,7 +69,7 @@ public class RepositoriesInitializer {
                     user.setRoles(new HashSet<>(Arrays.asList(roleUser)));
                     user.setPassword(passwordEncoder.encode("12345"));
                     userRepository.save(user);
-
+//test
                     Refundacja ref1 = new Refundacja("100% Refundowana");
                     refundacjaRepository.save(ref1);
                     Refundacja ref2 = new Refundacja("50% Refundowana");
