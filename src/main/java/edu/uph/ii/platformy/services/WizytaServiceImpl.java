@@ -47,7 +47,7 @@ public class WizytaServiceImpl implements WizytaService {
     }
 
     @Override
-    public List<Wizyta> getAllWizyta(int id) {
+    public List<Wizyta> getAllWizyta(Long id) {
         List<Wizyta> w = wizytaRepository.findAll();
         List<Wizyta> w2 = new ArrayList<>();
 

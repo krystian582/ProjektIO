@@ -1,6 +1,7 @@
 package edu.uph.ii.platformy.controllers;
 
 import edu.uph.ii.platformy.models.Wizyta;
+import edu.uph.ii.platformy.repositories.UserRepository;
 import edu.uph.ii.platformy.services.TerminarzService;
 import edu.uph.ii.platformy.services.UserService;
 import edu.uph.ii.platformy.services.WizytaService;
@@ -27,17 +28,19 @@ public class WizytyListController {
     @Autowired
     UserService userService;
     @Autowired
+    UserRepository userRepository;
+    @Autowired
     TerminarzService terminarzService;
 
-    private int getUserId() {
+    private Long getUserId() {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        return userService.findByUserName(authentication.getName());
+        return userRepository.findByPesel(authentication.getName()).getId();
     }
 
     @ModelAttribute("wizyty")
     public List<Wizyta> loadWizytyList(){
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        int id = getUserId();
+        Long id = getUserId();
         List<Wizyta> wizyty = wizytaService.getAllWizyta(id);
         return wizyty;
     }
@@ -51,7 +54,7 @@ public class WizytyListController {
     }
 
     @GetMapping(value="/wizytyList.html", params={"id"})
-    public String showWizytyListRecepcja(Model m, int id){
+    public String showWizytyListRecepcja(Model m, Long id){
         m.addAttribute("wizyty", wizytaService.getAllWizyta(id));
         return "wizytyList";
     }

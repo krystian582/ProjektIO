@@ -11,7 +11,7 @@ public interface WizytaService {
 
     Page<Wizyta> getAllWizyta(Pageable pageable);
     List<Wizyta> getAllWizyta();
-    List<Wizyta> getAllWizyta(int id);
+    List<Wizyta> getAllWizyta(Long id);
     Wizyta getWizyta(long id);
     void deleteWizyta(long id);
     void saveWizyta(Wizyta wizyta);
