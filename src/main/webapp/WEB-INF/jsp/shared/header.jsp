@@ -23,6 +23,9 @@
                     <li class="nav-item">
                         <a class="nav-link ${param['pageName'] eq 'lekarz' ?'active':''}"  href="userList.html">Pacjenci</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link ${param['pageName'] eq 'lekarz' ?'active':''}"  href="terminarz.html">Terminarz</a>
+                    </li>
                 </security:authorize>
                 <security:authorize access="hasRole('ZARZAD')">
                     <li class="nav-item">

@@ -13,6 +13,7 @@ public interface UserRepository extends JpaRepository<User, Long> {
 
     User findByPesel(String pesel);
 
+
     @Query("SELECT v FROM User v WHERE " +
             "(" +
             ":pesel is null OR :pesel = '' OR "+

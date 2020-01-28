@@ -1,5 +1,7 @@
 package edu.uph.ii.platformy.services;
 
+import edu.uph.ii.platformy.controllers.commands.TerminarzFilter;
+import edu.uph.ii.platformy.controllers.commands.UserFilter;
 import edu.uph.ii.platformy.models.Recepta;
 import edu.uph.ii.platformy.models.Terminarz;
 import edu.uph.ii.platformy.models.User;
@@ -17,7 +19,9 @@ public interface TerminarzService {
     void deleteTerminarz(long id);
     void saveTerminarz(Terminarz terminarz);
 
+    long getDoctorId();
     List<User> getAllUser();
     List<Wizyta> getAllWizyta();
+    List<Terminarz> getAllTerminarz(TerminarzFilter filter );
 
 }

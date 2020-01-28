@@ -15,20 +15,20 @@ import javax.validation.Valid;
 @SessionAttributes("wizyta")
 public class WizytaFormController {
 
-    @Autowired
-    UserService userService;
-
-    @GetMapping(value="/userWizytaForm.html", params = {"id"})
-    public String getUserList(@ModelAttribute("searchCommand") UserFilter search){
-        search.clear();
-        return "redirect:userList.html";
-    }
-
-    @RequestMapping(value="/userList.html", method = {RequestMethod.GET, RequestMethod.POST})
-    public String showUserList(Model model, Pageable pageable, @Valid @ModelAttribute("searchCommand") UserFilter search, BindingResult result){
-        model.addAttribute("userListPage", userService.getAllUser(search, pageable));
-        return "userList";
-    }
+//    @Autowired
+//    UserService userService;
+//
+//    @GetMapping(value="/userWizytaForm.html", params = {"id"})
+//    public String getUserList(@ModelAttribute("searchCommand") UserFilter search){
+//        search.clear();
+//        return "redirect:userList.html";
+//    }
+//
+//    @RequestMapping(value="/userList.html", method = {RequestMethod.GET, RequestMethod.POST})
+//    public String showUserList(Model model, Pageable pageable, @Valid @ModelAttribute("searchCommand") UserFilter search, BindingResult result){
+//        model.addAttribute("userListPage", userService.getAllUser(search, pageable));
+//        return "userList";
+//    }
 
 
     /*@RequestMapping(value="/userList.html", method = {RequestMethod.GET, RequestMethod.POST})
